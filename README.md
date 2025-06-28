@@ -1,6 +1,6 @@
 <div align="center"><a name="readme-top"></a>
 
-[![Project Banner](./public/images/placeholder.jpg)](#)
+[![Project Banner](./public/images/placeholder-1.jpg)](#)
 
 # 📚 Library Management System<br/><h3>Modern Digital Library Solution</h3>
 
