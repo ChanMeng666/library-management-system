@@ -40,14 +40,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                         {
                             user_id: currentUser.id,
                             email: currentUser.email,
-                            username: currentUser.email?.split('@')[0] || 'user',
+                            username: currentUser.user_metadata.username || currentUser.email?.split('@')[0] || 'user',
                             full_name: currentUser.user_metadata.full_name || 'Unknown',
-                            password_hash: 'PLACEHOLDER', // 实际项目中应该使用proper hashing
-                            membership_type: 'regular'
+                            password_hash: 'supabase_auth_managed', // 由 Supabase Auth 管理
+                            membership_type: 'basic'
                         }
                     ])
-                    .select()
-                    .single()
 
                 if (insertError) {
                     console.error('Error creating user profile:', insertError)
@@ -113,25 +111,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const signUp = async (email: string, password: string, username: string, fullName: string) => {
         try {
-            const { data, error } = await supabase.auth.signUp({
+            // 调用 API 路由来创建用户
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    username,
+                    fullName
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Registration failed');
+            }
+
+            // 注册成功后，使用邮箱密码登录
+            const { error: signInError } = await supabase.auth.signInWithPassword({
                 email,
-                password,
-                options: {
-                    data: {
-                        username,
-                        full_name: fullName
-                    }
-                }
-            })
+                password
+            });
 
-            if (error) throw error
-            if (!data.user) throw new Error('No user data returned')
+            if (signInError) {
+                console.error('Sign in error after registration:', signInError);
+                throw new Error('Registration successful, but failed to sign in');
+            }
 
-            await syncUserProfile(data.user)
-            return data
+            return data;
         } catch (error) {
-            console.error('SignUp error:', error)
-            throw error
+            console.error('SignUp error:', error);
+            throw error;
         }
     }
 
