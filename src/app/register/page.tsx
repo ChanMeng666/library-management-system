@@ -58,6 +58,8 @@ export default function Register() {
             await signUp(
                 formData.email,
                 formData.password,
+                formData.username,
+                formData.fullName
             )
             router.push('/dashboard')
         } catch (error) {
