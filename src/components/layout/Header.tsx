@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/button'
-import { BookOpenCheck, UserCircle } from 'lucide-react'
+import { UserCircle } from 'lucide-react'
 
 export default function Header() {
     const { user, signOut } = useAuth()
@@ -13,8 +14,20 @@ export default function Header() {
             <div className="container h-14 flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                     <Link href="/" className="flex items-center space-x-2">
-                        <BookOpenCheck className="h-6 w-6" />
-                        <span className="font-bold hidden md:inline-block">Library System</span>
+                        <Image
+                            src="/library-management-system-logo.svg"
+                            alt="Library Management System"
+                            width={32}
+                            height={32}
+                            className="rounded"
+                        />
+                        <Image
+                            src="/library-management-system-brand.svg"
+                            alt="Library Management System"
+                            width={120}
+                            height={32}
+                            className="hidden md:block dark:invert"
+                        />
                     </Link>
                     <nav className="hidden md:flex items-center space-x-6">
                         <Link href="/books" className="nav-link">

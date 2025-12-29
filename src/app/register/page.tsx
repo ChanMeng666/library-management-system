@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -73,8 +74,17 @@ export default function Register() {
         <div className="flex items-center justify-center min-h-[calc(100vh-14rem)]">
             <Card className="w-full max-w-lg">
                 <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
-                    <CardDescription>
+                    <div className="flex justify-center mb-4">
+                        <Image
+                            src="/library-management-system-logo.svg"
+                            alt="Library Management System"
+                            width={64}
+                            height={64}
+                            className="rounded-lg"
+                        />
+                    </div>
+                    <CardTitle className="text-2xl font-bold text-center">Create an account</CardTitle>
+                    <CardDescription className="text-center">
                         Join our library management system to start borrowing books
                     </CardDescription>
                 </CardHeader>

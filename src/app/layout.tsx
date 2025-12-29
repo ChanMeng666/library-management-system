@@ -11,6 +11,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
     title: 'Library Management System',
     description: 'A modern library management system',
+    icons: {
+        icon: '/library-management-system-logo.svg',
+        apple: '/library-management-system-logo.svg',
+    },
 }
 
 export default function RootLayout({

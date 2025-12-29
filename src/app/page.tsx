@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { BookOpen, Users, Clock, Search } from 'lucide-react'
 
@@ -32,6 +33,14 @@ export default function Home() {
             <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
                 <div className="container px-4 md:px-6">
                     <div className="flex flex-col items-center space-y-4 text-center">
+                        <Image
+                            src="/library-management-system-logo.svg"
+                            alt="Library Management System"
+                            width={120}
+                            height={120}
+                            className="rounded-2xl mb-4"
+                            priority
+                        />
                         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                             Welcome to Your Digital Library
                         </h1>
