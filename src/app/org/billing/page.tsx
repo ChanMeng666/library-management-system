@@ -154,10 +154,16 @@ function BillingContent() {
             }
         }
 
-        if (currentOrganization && isAdmin) {
-            fetchBillingInfo()
+        // Only fetch if organization is loaded and we've determined admin status
+        if (!isLoadingOrgs && currentOrganization) {
+            if (isAdmin) {
+                fetchBillingInfo()
+            } else {
+                // Not admin - stop loading to allow redirect
+                setIsLoading(false)
+            }
         }
-    }, [currentOrganization, isAdmin])
+    }, [currentOrganization, isAdmin, isLoadingOrgs])
 
     const handleSubscribe = async (planId: string) => {
         if (!user || !currentOrganization) return
