@@ -2,10 +2,10 @@
 
 [![Project Banner](./public/images/placeholder-1.jpg)](#)
 
-# 📚 Library Management System<br/><h3>Modern Digital Library Solution</h3>
+# 📚 Library Management System<br/><h3>Multi-tenant SaaS Library Platform</h3>
 
-A comprehensive web-based library management system that revolutionizes how libraries operate and how users interact with library services.<br/>
-Built with Next.js 15, TypeScript, and Supabase, featuring real-time updates and intuitive user experience.<br/>
+A comprehensive multi-tenant library management system that enables organizations to manage their book collections, track loans, handle reservations, and manage team members with role-based access control.<br/>
+Built with Next.js 16, React 19, TypeScript, Supabase, TailwindCSS 4, and Stripe for subscription billing.<br/>
 One-click **FREE** deployment for your digital library transformation.
 
 [Live Demo][demo-link] · [Documentation][docs-link] · [Report Bug][issues-link] · [Request Feature][issues-link]
@@ -31,7 +31,7 @@ One-click **FREE** deployment for your digital library transformation.
 [![][share-linkedin-shield]][share-linkedin-link]
 [![][share-reddit-shield]][share-reddit-link]
 
-<sup>🌟 Transforming library management for the digital age. Built for librarians, students, and book enthusiasts.</sup>
+<sup>🌟 Multi-tenant library management for the digital age. Built for organizations, librarians, and book enthusiasts.</sup>
 
 [![][github-trending-shield]][github-trending-url]
 
@@ -70,11 +70,12 @@ One-click **FREE** deployment for your digital library transformation.
 
 <div align="center">
 
- <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
+ <img src="https://img.shields.io/badge/next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
+ <img src="https://img.shields.io/badge/react_19-20232a?style=for-the-badge&logo=react&logoColor=61DAFB"/>
  <img src="https://img.shields.io/badge/typescript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
- <img src="https://img.shields.io/badge/react-20232a?style=for-the-badge&logo=react&logoColor=61DAFB"/>
  <img src="https://img.shields.io/badge/supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
- <img src="https://img.shields.io/badge/tailwindcss-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+ <img src="https://img.shields.io/badge/tailwindcss_4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+ <img src="https://img.shields.io/badge/stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white"/>
  <img src="https://img.shields.io/badge/postgresql-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
 
 </div>
@@ -82,51 +83,38 @@ One-click **FREE** deployment for your digital library transformation.
 </div>
 
 > [!IMPORTANT]
-> This project demonstrates modern full-stack development practices with Next.js 15 and Supabase. It combines server-side rendering with real-time database operations to provide a seamless library management experience. Features include user authentication, book catalog management, borrowing system, and comprehensive dashboard analytics.
+> This is a **multi-tenant SaaS platform** where organizations can create isolated library environments. Features include Stripe subscription billing (Free/Basic/Pro/Enterprise plans), role-based access control (Owner/Admin/Librarian/Member), team invitations, and comprehensive book management.
 
 <details>
 <summary><kbd>📑 Table of Contents</kbd></summary>
 
 #### TOC
 
-- [📚 Library Management SystemModern Digital Library Solution](#-library-management-systemmodern-digital-library-solution)
-  - [📸 Project Screenshots](#-project-screenshots)
-      - [TOC](#toc)
-      - [](#)
-  - [🌟 Introduction](#-introduction)
-  - [✨ Key Features](#-key-features)
-    - [`1` Smart Book Management](#1-smart-book-management)
-    - [`2` User-Centric Experience](#2-user-centric-experience)
-    - [`*` Additional Features](#-additional-features)
-  - [🛠️ Tech Stack](#️-tech-stack)
-  - [🏗️ Architecture](#️-architecture)
-    - [System Architecture](#system-architecture)
-    - [Component Architecture](#component-architecture)
-    - [Data Flow](#data-flow)
-    - [Component Structure](#component-structure)
-  - [⚡️ Performance](#️-performance)
-    - [Performance Metrics](#performance-metrics)
-  - [🚀 Getting Started](#-getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Quick Installation](#quick-installation)
-    - [Environment Setup](#environment-setup)
-    - [Development Mode](#development-mode)
-  - [🛳 Deployment](#-deployment)
-    - [`A` Vercel Deployment](#a-vercel-deployment)
-    - [`B` Docker Deployment](#b-docker-deployment)
-    - [`C` Environment Variables](#c-environment-variables)
-  - [📖 Usage Guide](#-usage-guide)
-    - [For Library Users](#for-library-users)
-    - [For Administrators](#for-administrators)
-    - [API Reference](#api-reference)
-  - [🔌 Integrations](#-integrations)
-  - [⌨️ Development](#️-development)
-    - [Local Development](#local-development)
-    - [Adding Features](#adding-features)
-    - [Testing](#testing)
-  - [🤝 Contributing](#-contributing)
-  - [📄 License](#-license)
-  - [👥 Author](#-author)
+- [🌟 Introduction](#-introduction)
+- [✨ Key Features](#-key-features)
+  - [`1` Multi-tenant Organizations](#1-multi-tenant-organizations)
+  - [`2` Smart Book Management](#2-smart-book-management)
+  - [`3` Subscription & Billing](#3-subscription--billing)
+  - [`4` Role-based Access Control](#4-role-based-access-control)
+  - [`*` Additional Features](#-additional-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🏗️ Architecture](#️-architecture)
+  - [System Architecture](#system-architecture)
+  - [Database Schema](#database-schema)
+  - [Core Workflows](#core-workflows)
+- [⚡️ Performance](#️-performance)
+- [🚀 Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Quick Installation](#quick-installation)
+  - [Environment Setup](#environment-setup)
+  - [Database Setup](#database-setup)
+- [🛳 Deployment](#-deployment)
+- [📖 Usage Guide](#-usage-guide)
+- [🔌 Integrations](#-integrations)
+- [⌨️ Development](#️-development)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [👥 Author](#-author)
 
 ####
 
@@ -136,15 +124,19 @@ One-click **FREE** deployment for your digital library transformation.
 
 ## 🌟 Introduction
 
-We are passionate about modernizing library management through innovative technology solutions. This comprehensive library management system bridges the gap between traditional library operations and modern digital expectations, providing both librarians and users with powerful, intuitive tools for managing and accessing library resources.
+This comprehensive library management system is designed for **organizations** that need to manage their book collections with team collaboration. Each organization operates in an isolated environment with its own books, members, and settings.
 
-Whether you're a library administrator seeking to streamline operations or a user looking for seamless book discovery and borrowing experiences, this system delivers enterprise-grade functionality with consumer-friendly design.
+**Key Differentiators:**
+- **Multi-tenancy**: Each organization has isolated data and settings
+- **Subscription Plans**: Tiered pricing with different quotas and features
+- **Team Management**: Invite members with different roles and permissions
+- **Modern Stack**: Built with the latest versions of Next.js, React, and TailwindCSS
 
 > [!NOTE]
 > - Node.js >= 18.0 required
 > - Supabase account required for database and authentication
+> - Stripe account required for subscription billing
 > - Modern web browser with JavaScript enabled
-> - Email service for notifications (optional)
 
 | [![][demo-shield-badge]][demo-link]   | Experience the system firsthand with our live demo - no installation required!                           |
 | :------------------------------------ | :--------------------------------------------------------------------------------------------- |
@@ -165,43 +157,88 @@ Whether you're a library administrator seeking to streamline operations or a use
 
 ## ✨ Key Features
 
-[![][image-feat-core]][docs-feat-core]
+### `1` Multi-tenant Organizations
 
-### `1` [Smart Book Management][docs-feat-core]
+Create and manage multiple library organizations, each with isolated data and customizable settings.
 
-Experience next-generation library catalog management with intelligent search, real-time availability tracking, and automated inventory management. Our advanced system provides comprehensive book information management with seamless user interactions.
+**Organization Features:**
+- 🏢 **Create Organizations**: Set up new library environments with custom branding
+- 👥 **Team Management**: Invite members via email with role assignment
+- 🔄 **Organization Switching**: Users can belong to multiple organizations
+- ⚙️ **Custom Settings**: Configure loan duration, max loans per user, and more
+- 📊 **Organization Stats**: Track books, members, loans, and usage
+
+<div align="center">
+
+```mermaid
+graph LR
+    A[User] --> B[Organization 1]
+    A --> C[Organization 2]
+    B --> D[Books]
+    B --> E[Members]
+    B --> F[Loans]
+    C --> G[Books]
+    C --> H[Members]
+    C --> I[Loans]
+```
+
+</div>
+
+[![][back-to-top]](#readme-top)
+
+### `2` Smart Book Management
+
+Experience next-generation library catalog management with intelligent search, real-time availability tracking, and automated inventory management.
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/54da54eb-a64d-4f93-b69a-b36349c77a43" alt="Book Catalog" width="600"/>
   <p><em>Advanced Book Catalog with Search and Filtering</em></p>
 </div>
 
-Key capabilities include:
+**Key Capabilities:**
 - 🔍 **Smart Search**: Advanced search by title, author, ISBN, and categories
 - 📚 **Real-time Inventory**: Live tracking of book availability and stock levels
-- 🏷️ **Category Management**: Organized book classification system
+- 🏷️ **Category Management**: Organized book classification system (global + org-specific)
 - 📱 **Responsive Design**: Seamless experience across all devices
 - 🖼️ **Cover Management**: Support for book cover images and placeholders
-
-> [!TIP]
-> The search system supports partial matches and fuzzy search, making it easy for users to find books even with incomplete information.
+- ⭐ **Reviews & Ratings**: Members can rate and review books
 
 [![][back-to-top]](#readme-top)
 
-### `2` [User-Centric Experience][docs-feat-advanced]
+### `3` Subscription & Billing
 
-Revolutionary user dashboard that transforms how library patrons interact with library services. With personalized borrowing history, real-time notifications, and intuitive book management, users can efficiently manage their library experience.
+Integrated Stripe subscription system with tiered plans and automatic billing.
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/70bd5184-9eb6-4670-b3de-5a4002c34a46" alt="User Dashboard" width="600"/>
-  <p><em>Comprehensive User Dashboard with Statistics and Borrowed Books</em></p>
-</div>
+| Plan | Max Books | Max Users | Max Loans/User | Price | Features |
+|------|-----------|-----------|----------------|-------|----------|
+| **Free** | 100 | 5 | 3 | $0 | Reservations, Reviews |
+| **Basic** | 1,000 | 20 | 5 | $29/mo | + Reports |
+| **Pro** | 10,000 | 100 | 10 | $99/mo | + Custom Branding |
+| **Enterprise** | Unlimited | Unlimited | Unlimited | Custom | + API, SSO, Priority Support |
 
-**Dashboard Features:**
-- **Personal Statistics**: Track borrowing history and library engagement
-- **Active Loans**: Manage currently borrowed books with due dates
-- **Overdue Alerts**: Visual indicators for overdue items
-- **Quick Actions**: One-click book returns and renewals
+**Billing Features:**
+- 💳 **Stripe Checkout**: Secure payment processing with 14-day trial
+- 📊 **Billing Portal**: Self-service subscription management
+- 🔄 **Auto-renewal**: Monthly or yearly billing cycles
+- 📧 **Payment Notifications**: Email alerts for successful/failed payments
+- 📜 **Billing History**: Complete audit trail of all transactions
+
+[![][back-to-top]](#readme-top)
+
+### `4` Role-based Access Control
+
+Granular permission system with four distinct roles.
+
+| Permission | Owner | Admin | Librarian | Member |
+|------------|:-----:|:-----:|:---------:|:------:|
+| Browse books | ✅ | ✅ | ✅ | ✅ |
+| Borrow/return books | ✅ | ✅ | ✅ | ✅ |
+| Write reviews | ✅ | ✅ | ✅ | ✅ |
+| Add/edit books | ✅ | ✅ | ✅ | ❌ |
+| Delete books | ✅ | ✅ | ❌ | ❌ |
+| Manage members | ✅ | ✅ | ❌ | ❌ |
+| Access billing | ✅ | ✅ | ❌ | ❌ |
+| Delete organization | ✅ | ❌ | ❌ | ❌ |
 
 [![][back-to-top]](#readme-top)
 
@@ -210,13 +247,15 @@ Revolutionary user dashboard that transforms how library patrons interact with l
 Beyond the core functionality, this system includes:
 
 - [x] 🔐 **Secure Authentication**: Email-based authentication with Supabase Auth
+- [x] 📧 **Email Invitations**: Send team invitations via Resend
 - [x] 📊 **Analytics Dashboard**: Comprehensive statistics and reporting
 - [x] 🔄 **Real-time Updates**: Live synchronization across all connected devices
 - [x] 📱 **Mobile Responsive**: Perfect experience on smartphones and tablets
-- [x] 🌙 **Dark Mode**: Eye-friendly dark theme option
+- [x] 🌙 **Dark Mode**: Eye-friendly dark theme with brand colors
 - [x] 🔔 **Smart Notifications**: Toast notifications for all user actions
 - [x] 📈 **Progress Tracking**: Visual progress indicators for all operations
-- [x] 🛡️ **Data Protection**: Secure data handling with PostgreSQL and RLS
+- [x] 🛡️ **Row Level Security**: Secure data isolation at database level
+- [x] 💚 **Brand Design**: Custom gradient theme with #02FF73 and #09ADAA
 
 > ✨ More features are continuously being added based on user feedback and library needs.
 
@@ -233,11 +272,11 @@ Beyond the core functionality, this system includes:
     <tr>
       <td align="center" width="96">
         <img src="https://cdn.simpleicons.org/nextdotjs" width="48" height="48" alt="Next.js" />
-        <br>Next.js 15
+        <br>Next.js 16
       </td>
       <td align="center" width="96">
         <img src="https://cdn.simpleicons.org/react" width="48" height="48" alt="React" />
-        <br>React 18
+        <br>React 19
       </td>
       <td align="center" width="96">
         <img src="https://cdn.simpleicons.org/typescript" width="48" height="48" alt="TypeScript" />
@@ -248,37 +287,25 @@ Beyond the core functionality, this system includes:
         <br>Supabase
       </td>
       <td align="center" width="96">
-        <img src="https://cdn.simpleicons.org/postgresql" width="48" height="48" alt="PostgreSQL" />
-        <br>PostgreSQL
+        <img src="https://cdn.simpleicons.org/stripe" width="48" height="48" alt="Stripe" />
+        <br>Stripe
       </td>
       <td align="center" width="96">
         <img src="https://cdn.simpleicons.org/tailwindcss" width="48" height="48" alt="TailwindCSS" />
-        <br>TailwindCSS
+        <br>TailwindCSS 4
       </td>
     </tr>
   </table>
 </div>
 
-**Frontend Stack:**
-- **Framework**: Next.js 15 with App Router for optimal performance
-- **Language**: TypeScript for type safety and better development experience
-- **Styling**: TailwindCSS with custom design system
-- **UI Components**: Radix UI primitives with custom styling
-- **Icons**: Lucide React for consistent iconography
-
-**Backend & Database:**
-- **Backend-as-a-Service**: Supabase for authentication and database
-- **Database**: PostgreSQL with Row Level Security (RLS)
-- **Real-time**: Supabase real-time subscriptions
-- **Authentication**: Supabase Auth with email/password
-- **Storage**: Supabase Storage for file management
-
-**Development Tools:**
-- **Build Tool**: Next.js built-in build system
-- **Code Quality**: ESLint + TypeScript ESLint rules
-- **Form Handling**: React Hook Form with Zod validation
-- **Date Management**: date-fns for date operations
-- **Deployment**: Vercel for seamless deployment
+| Layer | Technologies |
+|-------|-------------|
+| **Frontend** | Next.js 16 (App Router), React 19, TypeScript, TailwindCSS 4, shadcn/ui (Radix UI) |
+| **Backend** | Supabase (PostgreSQL, Auth, RLS policies, Stored Procedures) |
+| **Payment** | Stripe (Subscriptions, Checkout, Billing Portal, Webhooks) |
+| **Email** | Resend (Transactional emails for invitations) |
+| **State** | React Context (AuthContext, OrganizationContext) |
+| **Forms** | React Hook Form + Zod validation |
 
 > [!TIP]
 > Each technology was selected for production readiness, developer experience, and seamless integration with the overall architecture.
@@ -287,155 +314,198 @@ Beyond the core functionality, this system includes:
 
 ### System Architecture
 
-> [!TIP]
-> This architecture supports real-time updates and scalable user management, making it suitable for libraries of all sizes.
-
 ```mermaid
 graph TB
     subgraph "Frontend Layer"
-        A[Next.js App] --> B[React Components]
-        B --> C[Context Management]
-        C --> D[Supabase Client]
+        A[Next.js 16 App] --> B[React 19 Components]
+        B --> C[AuthContext]
+        B --> D[OrganizationContext]
+        C --> E[Supabase Client]
+        D --> E
     end
-    
+
+    subgraph "API Layer"
+        F["/api/auth/register"]
+        G["/api/stripe/checkout"]
+        H["/api/stripe/portal"]
+        I["/api/stripe/webhook"]
+        J["/api/email/invite"]
+    end
+
     subgraph "Backend Layer"
-        E[Supabase API] --> F[PostgreSQL Database]
-        F --> G[Row Level Security]
-        G --> H[Real-time Engine]
+        K[Supabase API] --> L[PostgreSQL]
+        L --> M[RLS Policies]
+        L --> N[Stored Procedures]
     end
-    
+
     subgraph "External Services"
-        I[Supabase Auth]
-        J[Supabase Storage]
-        K[Email Service]
-        L[Vercel Hosting]
+        O[Stripe]
+        P[Resend Email]
     end
-    
-    D --> E
-    E --> I
-    E --> J
+
     E --> K
-    A --> L
-    
-    subgraph "Database Schema"
-        M[Users Table]
-        N[Books Table]
-        O[Loans Table]
-        P[Categories Table]
-    end
-    
-    F --> M
-    F --> N
-    F --> O
-    F --> P
+    A --> F
+    A --> G
+    A --> H
+    G --> O
+    H --> O
+    I --> O
+    J --> P
 ```
 
-### Component Architecture
+### Database Schema
 
 ```mermaid
-graph LR
-    subgraph "Pages"
-        P1[Home Page]
-        P2[Books Catalog]
-        P3[Book Details]
-        P4[User Dashboard]
-        P5[Auth Pages]
-    end
-    
-    subgraph "Components"
-        C1[BookCard]
-        C2[SearchFilters]
-        C3[Header/Footer]
-        C4[UI Components]
-    end
-    
-    subgraph "Contexts"
-        CT1[AuthContext]
-        CT2[Toast Provider]
-    end
-    
-    subgraph "Hooks"
-        H1[useAuth]
-        H2[useToast]
-    end
-    
-    P1 --> C1
-    P2 --> C1
-    P2 --> C2
-    P3 --> C4
-    P4 --> C4
-    CT1 --> H1
-    CT2 --> H2
+erDiagram
+    organizations ||--o{ organization_members : has
+    organizations ||--o{ books : owns
+    organizations ||--o{ loans : tracks
+    organizations }o--|| subscription_plans : subscribes
+
+    users ||--o{ organization_members : belongs
+    users ||--o{ loans : borrows
+    users ||--o{ reviews : writes
+
+    books ||--o{ loans : borrowed
+    books ||--o{ reviews : reviewed
+    books }o--|| categories : categorized
+
+    organizations {
+        uuid organization_id PK
+        varchar name
+        varchar slug UK
+        varchar subscription_plan FK
+        varchar subscription_status
+        varchar stripe_customer_id
+        integer max_books
+        integer max_users
+    }
+
+    organization_members {
+        uuid membership_id PK
+        uuid organization_id FK
+        uuid user_id FK
+        varchar role
+        varchar status
+    }
+
+    books {
+        uuid book_id PK
+        varchar title
+        varchar author
+        varchar isbn
+        integer available_copies
+        uuid organization_id FK
+    }
+
+    loans {
+        uuid loan_id PK
+        uuid user_id FK
+        uuid book_id FK
+        date due_date
+        varchar status
+    }
 ```
 
-### Data Flow
+### Core Workflows
+
+<details>
+<summary><kbd>🔐 Authentication Flow</kbd></summary>
 
 ```mermaid
 sequenceDiagram
     participant U as User
     participant F as Frontend
-    participant S as Supabase
-    participant D as Database
-    
-    U->>F: Browse Books
-    F->>S: Query Books
-    S->>D: SELECT books
-    D->>S: Return Results
-    S->>F: JSON Response
-    F->>U: Display Books
-    
-    U->>F: Borrow Book
-    F->>S: Create Loan
-    S->>D: INSERT loan
-    S->>D: UPDATE book availability
-    D->>S: Transaction Complete
-    S->>F: Success Response
-    F->>U: Show Confirmation
+    participant API as /api/auth/register
+    participant SA as Supabase Auth
+    participant DB as Database
+
+    U->>F: Submit registration form
+    F->>API: POST {email, password, username, fullName}
+    API->>SA: createUser (auto-confirm email)
+    SA-->>API: Auth user created
+    API->>DB: INSERT into users table
+    DB-->>API: User profile created
+    API-->>F: {success: true, user}
+    F->>SA: signInWithPassword
+    SA-->>F: Session established
+    F->>U: Redirect to /dashboard
 ```
 
-### Component Structure
+</details>
 
+<details>
+<summary><kbd>📚 Book Borrowing Flow</kbd></summary>
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant RPC as Supabase RPC
+    participant DB as Database
+
+    U->>F: Click "Borrow" on book
+    F->>RPC: borrow_book(org_id, book_id, user_id, due_date)
+    RPC->>RPC: Check membership status
+    RPC->>RPC: Check subscription active
+    RPC->>RPC: Check user loan quota
+    RPC->>RPC: Check book availability
+    alt All checks pass
+        RPC->>DB: INSERT loan record
+        RPC->>DB: DECREMENT available_copies
+        RPC-->>F: {success: true, loan_id}
+        F->>U: Show success message
+    else Quota exceeded
+        RPC-->>F: {success: false, error}
+        F->>U: Show error message
+    end
 ```
-src/
-├── app/                    # Next.js App Router
-│   ├── books/             # Book-related pages
-│   │   ├── [id]/         # Dynamic book detail page
-│   │   └── page.tsx      # Book catalog page
-│   ├── dashboard/        # User dashboard
-│   ├── login/           # Authentication pages
-│   ├── register/        # User registration
-│   └── layout.tsx       # Root layout
-├── components/          # Reusable components
-│   ├── books/          # Book-specific components
-│   ├── layout/         # Layout components
-│   └── ui/            # Base UI components
-├── contexts/           # React contexts
-├── hooks/             # Custom hooks
-├── lib/               # Utility libraries
-├── types/             # TypeScript definitions
-└── styles/            # Global styles
+
+</details>
+
+<details>
+<summary><kbd>💳 Subscription Payment Flow</kbd></summary>
+
+```mermaid
+sequenceDiagram
+    participant A as Admin
+    participant F as Frontend
+    participant API as /api/stripe/checkout
+    participant S as Stripe
+    participant WH as /api/stripe/webhook
+    participant DB as Database
+
+    A->>F: Select plan on /org/billing
+    F->>API: POST {organizationId, planId, billingPeriod}
+    API->>S: Create checkout session (14-day trial)
+    S-->>API: {sessionId, url}
+    F->>S: Redirect to Stripe Checkout
+    A->>S: Complete payment
+    S->>WH: checkout.session.completed webhook
+    WH->>DB: UPDATE organization subscription
+    WH->>DB: INSERT subscription_history
+    S-->>F: Redirect to /org/billing?success=true
 ```
+
+</details>
 
 ## ⚡️ Performance
 
 > [!NOTE]
 > Performance optimizations ensure fast loading times and smooth user experience across all devices.
 
-### Performance Metrics
-
 **Key Performance Indicators:**
 - ⚡ **Lightning Fast**: < 2s initial page load
 - 🚀 **Instant Navigation**: Client-side routing with prefetching
 - 📱 **Mobile Optimized**: Perfect scores on mobile devices
 - 🔄 **Real-time Updates**: < 100ms database synchronization
-- 📊 **Efficient Rendering**: Optimized React components
+- 📊 **Efficient Rendering**: Optimized React 19 components
 
 **Optimization Techniques:**
 - 🎯 **Image Optimization**: Next.js Image component with lazy loading
 - 📦 **Code Splitting**: Automatic route-based code splitting
 - 🗄️ **Database Optimization**: Efficient PostgreSQL queries with indexes
 - 🔄 **Caching Strategy**: Static generation where possible
-- 📱 **Progressive Enhancement**: Works without JavaScript
 
 ## 🚀 Getting Started
 
@@ -448,6 +518,7 @@ src/
 - **npm/yarn/pnpm** package manager
 - **Git** ([Download](https://git-scm.com/))
 - **Supabase Account** ([Sign up](https://supabase.com/))
+- **Stripe Account** ([Sign up](https://stripe.com/)) - for billing features
 
 ### Quick Installation
 
@@ -464,9 +535,6 @@ cd library-management-system
 # Using npm
 npm install
 
-# Using yarn
-yarn install
-
 # Using pnpm (recommended)
 pnpm install
 ```
@@ -481,13 +549,7 @@ cp .env.example .env.local
 nano .env.local
 ```
 
-**4. Supabase Setup**
-
-1. Create a new project on [Supabase](https://supabase.com/)
-2. Get your project URL and anon key
-3. Set up your database schema (see database setup guide)
-
-**5. Start Development**
+**4. Start Development**
 
 ```bash
 npm run dev
@@ -500,39 +562,51 @@ npm run dev
 Create `.env.local` file with the following variables:
 
 ```bash
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+# Supabase (Required)
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
-# Optional: Additional Configuration
+# Stripe (Required for billing)
+STRIPE_SECRET_KEY=sk_test_or_live_key
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
+
+# Application
 NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Email (Optional - for invitations)
+RESEND_API_KEY=re_your_api_key
 ```
 
-> [!TIP]
-> Get your Supabase credentials from your project settings in the Supabase dashboard.
+> [!WARNING]
+> Never commit sensitive environment variables to version control. Use Vercel's environment variables settings for production.
 
-### Development Mode
+### Database Setup
+
+**Using Supabase CLI:**
 
 ```bash
-# Start development server
-npm run dev
+# Start local Supabase
+npx supabase start
 
-# Build for production
-npm run build
+# Apply migrations
+npx supabase db reset
 
-# Start production server
-npm start
-
-# Run linting
-npm run lint
+# Stop local Supabase
+npx supabase stop
 ```
+
+**Manual Setup:**
+1. Create a new project on [Supabase](https://supabase.com/)
+2. Run the migration files in `supabase/migrations/` in order
+3. Configure RLS policies as defined in the migrations
 
 ## 🛳 Deployment
 
 > [!IMPORTANT]
 > The application is optimized for deployment on Vercel, but can be deployed on any platform that supports Next.js.
 
-### `A` Vercel Deployment
+### Vercel Deployment
 
 **One-Click Deploy:**
 
@@ -548,161 +622,95 @@ npm i -g vercel
 vercel --prod
 ```
 
-### `B` Docker Deployment
+### Environment Variables for Production
 
-```bash
-# Build Docker image
-docker build -t library-management-system .
-
-# Run container
-docker run -p 3000:3000 library-management-system
-```
-
-### `C` Environment Variables
-
-> [!WARNING]
-> Never commit sensitive environment variables to version control. Use Vercel's environment variables settings for production.
-
-| Variable | Description | Required | Example |
-|----------|-------------|----------|---------|
-| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL | ✅ | `https://xxx.supabase.co` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key | ✅ | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` |
-| `NEXT_PUBLIC_APP_URL` | Application URL | 🔶 | `https://your-app.vercel.app` |
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL | ✅ |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key | ✅ |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | ✅ |
+| `STRIPE_SECRET_KEY` | Stripe secret key | ✅ |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook secret | ✅ |
+| `NEXT_PUBLIC_APP_URL` | Application URL | ✅ |
+| `RESEND_API_KEY` | Resend API key | 🔶 |
 
 > [!NOTE]
 > ✅ Required, 🔶 Optional
 
 ## 📖 Usage Guide
 
-### For Library Users
+### For Organization Owners
 
-**Getting Started:**
+1. **Create Organization** - Set up your library environment
+2. **Configure Settings** - Set loan duration, max loans per user
+3. **Invite Team** - Add librarians and members via email
+4. **Subscribe** - Choose a plan that fits your needs
 
-1. **Create Account** - Register with your email address
-2. **Browse Books** - Explore the book catalog with advanced search
-3. **Borrow Books** - Click "Borrow" on available books
-4. **Manage Loans** - Track your borrowed books in the dashboard
-5. **Return Books** - Use the dashboard to return books
+### For Librarians
 
-**Key Features:**
-- 📚 **Book Discovery**: Search by title, author, or ISBN
-- 🔍 **Advanced Filtering**: Filter by categories and availability
-- 📊 **Personal Dashboard**: View borrowed books and statistics
-- 🔔 **Due Date Tracking**: Never miss a return date
-- 📱 **Mobile Access**: Use on any device, anywhere
+1. **Manage Books** - Add, edit, and delete books
+2. **Process Loans** - Handle borrowing and returns
+3. **Track Inventory** - Monitor book availability
 
-### For Administrators
+### For Members
 
-**System Management:**
-- 👥 **User Management**: Monitor user accounts and activities
-- 📚 **Inventory Control**: Track book availability and status
-- 📈 **Analytics**: View system usage and statistics
-- 🔧 **Configuration**: Manage system settings and preferences
-
-### API Reference
-
-> [!TIP]
-> The system uses Supabase's auto-generated API with Row Level Security for data protection.
-
-**Core Database Tables:**
-- `books` - Book information and inventory
-- `users` - User profiles and authentication
-- `loans` - Borrowing records and transactions
-- `categories` - Book classification system
-
-**Key Operations:**
-```javascript
-// Search books
-const { data: books } = await supabase
-  .from('books')
-  .select('*')
-  .ilike('title', `%${searchTerm}%`)
-
-// Borrow book
-const { data: loan } = await supabase
-  .from('loans')
-  .insert([{
-    user_id: userId,
-    book_id: bookId,
-    due_date: dueDate
-  }])
-```
+1. **Browse Catalog** - Search and filter books
+2. **Borrow Books** - Check out available books
+3. **Write Reviews** - Rate and review books
+4. **Track Loans** - View due dates in dashboard
 
 ## 🔌 Integrations
 
-The system integrates seamlessly with modern web services:
-
-| Service | Purpose | Status | Documentation |
-|---------|---------|--------|---------------|
-| **Supabase** | Database & Auth | ✅ Active | [Setup Guide](docs/supabase.md) |
-| **Vercel** | Hosting & Deployment | ✅ Active | [Deploy Guide](docs/vercel.md) |
-| **Radix UI** | Component Library | ✅ Active | [Component Docs](docs/components.md) |
-| **TailwindCSS** | Styling Framework | ✅ Active | [Style Guide](docs/styles.md) |
+| Service | Purpose | Status |
+|---------|---------|--------|
+| **Supabase** | Database, Auth, RLS | ✅ Active |
+| **Stripe** | Subscriptions, Billing | ✅ Active |
+| **Resend** | Email Invitations | ✅ Active |
+| **Vercel** | Hosting & Deployment | ✅ Active |
+| **shadcn/ui** | UI Components | ✅ Active |
 
 ## ⌨️ Development
 
-### Local Development
-
-**Setup Development Environment:**
-
-```bash
-# Clone and install
-git clone https://github.com/ChanMeng666/library-management-system.git
-cd library-management-system
-npm install
-
-# Set up environment
-cp .env.example .env.local
-# Edit .env.local with your Supabase credentials
-
-# Start development
-npm run dev
-```
-
-**Development Scripts:**
+### Development Commands
 
 ```bash
 # Development
 npm run dev          # Start dev server
 npm run build        # Build for production
 npm run start        # Start production server
-
-# Code Quality
 npm run lint         # Run ESLint
-npm run type-check   # TypeScript check
 
-# Database (if using local Supabase)
+# Database
 npx supabase start   # Start local Supabase
 npx supabase stop    # Stop local Supabase
+npx supabase db reset # Reset database
 ```
 
-### Adding Features
+### Project Structure
 
-> [!TIP]
-> Follow the established patterns when adding new features to maintain code consistency.
-
-**Feature Development Workflow:**
-
-1. **Create Feature Branch**: `git checkout -b feature/new-feature`
-2. **Develop Component**: Add components in appropriate directories
-3. **Add Types**: Update TypeScript definitions
-4. **Test Functionality**: Ensure all features work correctly
-5. **Update Documentation**: Add relevant documentation
-6. **Submit Pull Request**: Follow PR template
-
-### Testing
-
-**Manual Testing Checklist:**
-- [ ] User authentication (sign up, sign in, sign out)
-- [ ] Book browsing and search functionality
-- [ ] Book borrowing and returning process
-- [ ] Dashboard statistics and display
-- [ ] Responsive design on mobile devices
-- [ ] Error handling and edge cases
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   │   ├── auth/         # Authentication
+│   │   ├── stripe/       # Stripe webhooks
+│   │   └── email/        # Email sending
+│   ├── books/            # Book pages
+│   ├── dashboard/        # User dashboard
+│   └── org/              # Organization pages
+├── components/
+│   ├── books/            # Book components
+│   ├── layout/           # Layout components
+│   ├── organization/     # Org components
+│   └── ui/               # shadcn/ui components
+├── contexts/             # React contexts
+├── lib/                  # Utilities
+└── types/                # TypeScript types
+```
 
 ## 🤝 Contributing
 
-We welcome contributions to improve the Library Management System! Here's how you can help:
+We welcome contributions to improve the Library Management System!
 
 **Development Process:**
 
@@ -719,12 +727,6 @@ We welcome contributions to improve the Library Management System! Here's how yo
 - Test your changes thoroughly
 - Update documentation as needed
 
-**Types of Contributions:**
-- 🐛 **Bug Reports**: Help us identify and fix issues
-- 💡 **Feature Requests**: Suggest new functionality
-- 📚 **Documentation**: Improve our documentation
-- 🔧 **Code Improvements**: Optimize existing code
-
 [![][pr-welcome-shield]][pr-welcome-link]
 
 <a href="https://github.com/ChanMeng666/library-management-system/graphs/contributors" target="_blank">
@@ -740,12 +742,6 @@ We welcome contributions to improve the Library Management System! Here's how yo
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-**Open Source Benefits:**
-- ✅ Commercial use allowed
-- ✅ Modification allowed
-- ✅ Distribution allowed
-- ✅ Private use allowed
 
 ## 👥 Author
 
@@ -774,9 +770,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-<strong>🚀 Transforming Library Management for the Digital Age 🌟</strong>
+<strong>🚀 Multi-tenant Library Management for the Digital Age 🌟</strong>
 <br/>
-<em>Empowering libraries and readers worldwide</em>
+<em>Empowering organizations and readers worldwide</em>
 <br/><br/>
 
 ⭐ **Star us on GitHub** • 📖 **Read the Documentation** • 🐛 **Report Issues** • 💡 **Request Features** • 🤝 **Contribute**
@@ -814,10 +810,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [discord-link]: https://discord.gg/library-management
 [vercel-link]: https://vercel.com
 
-<!-- Documentation Links -->
-[docs-feat-core]: #1-smart-book-management
-[docs-feat-advanced]: #2-user-centric-experience
-
 <!-- Shield Badges -->
 [github-release-shield]: https://img.shields.io/github/v/release/ChanMeng666/library-management-system?color=369eff&labelColor=black&logo=github&style=flat-square
 [vercel-shield]: https://img.shields.io/badge/vercel-online-55b467?labelColor=black&logo=vercel&style=flat-square
@@ -844,8 +836,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <!-- Images -->
 [image-star]: https://via.placeholder.com/800x200/FFD700/000000?text=Star+Us+on+GitHub
-[image-feat-core]: https://via.placeholder.com/800x400/4CAF50/FFFFFF?text=Smart+Book+Management
 
 <!-- Trending -->
 [github-trending-url]: https://trendshift.io/repositories/123456
-</rewritten_file>
