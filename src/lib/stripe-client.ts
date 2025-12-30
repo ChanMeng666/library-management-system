@@ -49,7 +49,7 @@ export const SUBSCRIPTION_PLANS = [
         id: 'basic',
         name: 'Basic',
         description: 'Great for small libraries',
-        price: { monthly: 9.99, yearly: 99.99 },
+        price: { monthly: 0.99, yearly: 9.99 },
         features: [
             'Up to 1,000 books',
             'Up to 25 members',
@@ -63,7 +63,7 @@ export const SUBSCRIPTION_PLANS = [
         id: 'pro',
         name: 'Pro',
         description: 'For growing organizations',
-        price: { monthly: 29.99, yearly: 299.99 },
+        price: { monthly: 2.99, yearly: 29.99 },
         features: [
             'Up to 10,000 books',
             'Up to 100 members',
@@ -78,7 +78,7 @@ export const SUBSCRIPTION_PLANS = [
         id: 'enterprise',
         name: 'Enterprise',
         description: 'For large institutions',
-        price: { monthly: 99.99, yearly: 999.99 },
+        price: { monthly: 8.99, yearly: 89.99 },
         features: [
             'Unlimited books',
             'Unlimited members',

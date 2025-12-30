@@ -38,7 +38,17 @@ export async function POST(request: NextRequest) {
         }
 
         // Library Management System Price IDs (to filter events for this project only)
-        const VALID_PRICE_IDS = [
+        // Live Mode Price IDs
+        const LIVE_PRICE_IDS = [
+            'price_1SjyGc86MNjhkH0a6Jv7jH5r', // Basic monthly $0.99
+            'price_1SjyGf86MNjhkH0aOzA6kwVT', // Basic yearly $9.99
+            'price_1SjyGj86MNjhkH0aRd13R01S', // Pro monthly $2.99
+            'price_1SjyGm86MNjhkH0agZWkyvAB', // Pro yearly $29.99
+            'price_1SjyGo86MNjhkH0aSJ6j7tpa', // Enterprise monthly $8.99
+            'price_1SjyGs86MNjhkH0aoAD8RwqP', // Enterprise yearly $89.99
+        ]
+        // Test Mode Price IDs
+        const TEST_PRICE_IDS = [
             'price_1Sjvyj86MNjhkH0aYaxu1M8A', // Basic monthly
             'price_1Sjvyj86MNjhkH0afkLmyIe6', // Basic yearly
             'price_1Sjvyl86MNjhkH0aJSPO6Zkl', // Pro monthly
@@ -46,6 +56,7 @@ export async function POST(request: NextRequest) {
             'price_1Sjvyn86MNjhkH0aKIvNQwrA', // Enterprise monthly
             'price_1Sjvyn86MNjhkH0ailX8YoXK', // Enterprise yearly
         ]
+        const VALID_PRICE_IDS = [...LIVE_PRICE_IDS, ...TEST_PRICE_IDS]
 
         // Helper to check if event is for this project
         const isOurProduct = (priceId: string | undefined) => {

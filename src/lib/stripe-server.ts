@@ -46,11 +46,11 @@ export function getStripePrices() {
     return isProduction ? STRIPE_PRICES.production : STRIPE_PRICES.test
 }
 
-// Plan price mapping
+// Plan price mapping (Africa-friendly pricing)
 export const PLAN_PRICES = {
-    basic: { monthly: 9.99, yearly: 99.99 },
-    pro: { monthly: 29.99, yearly: 299.99 },
-    enterprise: { monthly: 99.99, yearly: 999.99 },
+    basic: { monthly: 0.99, yearly: 9.99 },
+    pro: { monthly: 2.99, yearly: 29.99 },
+    enterprise: { monthly: 8.99, yearly: 89.99 },
 }
 
 // Create or retrieve a Stripe customer
