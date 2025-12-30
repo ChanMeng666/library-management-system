@@ -42,7 +42,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                             email: currentUser.email,
                             username: currentUser.user_metadata.username || currentUser.email?.split('@')[0] || 'user',
                             full_name: currentUser.user_metadata.full_name || 'Unknown',
-                            password_hash: 'supabase_auth_managed', // 由 Supabase Auth 管理
                             membership_type: 'basic'
                         }
                     ])

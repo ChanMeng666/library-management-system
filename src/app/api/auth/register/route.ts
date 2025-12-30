@@ -51,8 +51,6 @@ export async function POST(request: NextRequest) {
                 email: email,
                 username: username,
                 full_name: fullName,
-                password_hash: 'supabase_auth_managed',
-                membership_type: 'basic'
             });
 
         if (profileError) {
