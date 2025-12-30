@@ -353,10 +353,23 @@ function BillingContent() {
             </div>
 
             {/* Plan Cards */}
+            {/* Show info banner if user has active subscription */}
+            {billingInfo?.stripe_subscription_id && billingInfo?.subscription_status &&
+                ['active', 'trialing', 'trial'].includes(billingInfo.subscription_status) && (
+                <Alert className="mb-6">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertDescription>
+                        You have an active subscription. To change your plan, please use the <strong>Manage Billing</strong> button above.
+                    </AlertDescription>
+                </Alert>
+            )}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
                 {SUBSCRIPTION_PLANS.map((plan) => {
                     const isCurrentPlan = currentPlan?.id === plan.id
                     const price = billingPeriod === 'monthly' ? plan.price.monthly : plan.price.yearly
+                    const hasActiveSubscription = billingInfo?.stripe_subscription_id &&
+                        billingInfo?.subscription_status &&
+                        ['active', 'trialing', 'trial'].includes(billingInfo.subscription_status)
 
                     return (
                         <Card
@@ -392,13 +405,15 @@ function BillingContent() {
                                 <Button
                                     className="w-full"
                                     variant={isCurrentPlan ? 'outline' : plan.highlighted ? 'default' : 'secondary'}
-                                    disabled={isCurrentPlan || isProcessing}
-                                    onClick={() => handleSubscribe(plan.id)}
+                                    disabled={isCurrentPlan || isProcessing || (hasActiveSubscription && !isCurrentPlan)}
+                                    onClick={() => hasActiveSubscription ? handleManageBilling() : handleSubscribe(plan.id)}
                                 >
                                     {isProcessing && selectedPlan === plan.id ? (
                                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                     ) : isCurrentPlan ? (
                                         'Current Plan'
+                                    ) : hasActiveSubscription ? (
+                                        'Use Manage Billing'
                                     ) : plan.id === 'free' ? (
                                         'Downgrade'
                                     ) : (

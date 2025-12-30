@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
         // Get organization details
         const { data: orgData, error: orgError } = await supabase
             .from('organizations')
-            .select('organization_id, name, stripe_customer_id')
+            .select('organization_id, name, stripe_customer_id, stripe_subscription_id, subscription_status')
             .eq('organization_id', organizationId)
             .single()
 
@@ -51,6 +51,19 @@ export async function POST(request: NextRequest) {
             return NextResponse.json(
                 { error: 'Organization not found' },
                 { status: 404 }
+            )
+        }
+
+        // Check if organization already has an active subscription
+        if (orgData.stripe_subscription_id &&
+            orgData.subscription_status &&
+            ['active', 'trialing', 'trial'].includes(orgData.subscription_status)) {
+            return NextResponse.json(
+                {
+                    error: 'You already have an active subscription. Please use "Manage Billing" to change your plan.',
+                    hasActiveSubscription: true
+                },
+                { status: 400 }
             )
         }
 
