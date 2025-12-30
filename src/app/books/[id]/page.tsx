@@ -277,7 +277,7 @@ export default function BookDetails() {
                 {/* Book Cover and Actions */}
                 <Card className="lg:col-span-1">
                     <CardContent className="p-6">
-                        <div className="relative aspect-[2/3] w-full rounded-lg overflow-hidden mb-6">
+                        <div className="relative aspect-2/3 w-full rounded-lg overflow-hidden mb-6">
                             <Image
                                 src={book.cover_image_url || '/images/placeholder.jpg'}
                                 alt={book.title}

@@ -10,7 +10,7 @@ export default function Header() {
     const { user, signOut } = useAuth()
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
             <div className="container h-14 flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                     <Link href="/" className="flex items-center space-x-2">
@@ -20,13 +20,6 @@ export default function Header() {
                             width={32}
                             height={32}
                             className="rounded"
-                        />
-                        <Image
-                            src="/library-management-system-brand.svg"
-                            alt="Library Management System"
-                            width={120}
-                            height={32}
-                            className="hidden md:block dark:invert"
                         />
                     </Link>
                     <nav className="hidden md:flex items-center space-x-6">

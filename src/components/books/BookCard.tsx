@@ -12,7 +12,7 @@ type BookCardProps = {
 export default function BookCard({ book }: BookCardProps) {
     return (
         <Card className="h-full flex flex-col overflow-hidden card-hover">
-            <div className="relative aspect-[3/4] w-full">
+            <div className="relative aspect-3/4 w-full">
                 <Image
                     src={book.cover_image_url || '/images/placeholder.jpg'}
                     alt={book.title}
@@ -26,7 +26,7 @@ export default function BookCard({ book }: BookCardProps) {
                     </Badge>
                 </div>
             </div>
-            <CardContent className="flex-grow p-4">
+            <CardContent className="grow p-4">
                 <h3 className="font-semibold text-lg line-clamp-1 mb-1">{book.title}</h3>
                 <p className="text-sm text-muted-foreground mb-2">by {book.author}</p>
                 <p className="text-sm text-muted-foreground line-clamp-2">

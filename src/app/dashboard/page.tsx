@@ -181,7 +181,7 @@ export default function Dashboard() {
 
             {/* Stats Overview */}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <Card className="bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900 dark:to-blue-800">
+                <Card className="bg-linear-to-br from-blue-100 to-blue-50 dark:from-blue-900 dark:to-blue-800">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                         <CardTitle className="text-sm font-medium">Total Books</CardTitle>
                         <Library className="h-4 w-4 text-blue-600 dark:text-blue-400"/>
@@ -195,7 +195,7 @@ export default function Dashboard() {
                 </Card>
 
                 {/* Borrowed Books Card */}
-                <Card className="bg-gradient-to-br from-green-100 to-green-50 dark:from-green-900 dark:to-green-800">
+                <Card className="bg-linear-to-br from-green-100 to-green-50 dark:from-green-900 dark:to-green-800">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                         <CardTitle className="text-sm font-medium">Borrowed Books</CardTitle>
                         <BookOpen className="h-4 w-4 text-green-600 dark:text-green-400"/>
@@ -207,7 +207,7 @@ export default function Dashboard() {
                 </Card>
 
                 {/* Due Soon Card */}
-                <Card className="bg-gradient-to-br from-yellow-100 to-yellow-50 dark:from-yellow-900 dark:to-yellow-800">
+                <Card className="bg-linear-to-br from-yellow-100 to-yellow-50 dark:from-yellow-900 dark:to-yellow-800">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                         <CardTitle className="text-sm font-medium">Due Soon</CardTitle>
                         <Clock className="h-4 w-4 text-yellow-600 dark:text-yellow-400"/>
@@ -228,7 +228,7 @@ export default function Dashboard() {
                 </Card>
 
                 {/* Overdue Books Card */}
-                <Card className="bg-gradient-to-br from-red-100 to-red-50 dark:from-red-900 dark:to-red-800">
+                <Card className="bg-linear-to-br from-red-100 to-red-50 dark:from-red-900 dark:to-red-800">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                         <CardTitle className="text-sm font-medium">Overdue Books</CardTitle>
                         <BookX className="h-4 w-4 text-red-600 dark:text-red-400"/>

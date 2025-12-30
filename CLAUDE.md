@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Library Management System built with Next.js 15, React 18, TypeScript, Supabase, TailwindCSS, and shadcn/ui components.
+Library Management System built with Next.js 16, React 19, TypeScript, Supabase, TailwindCSS 4, and shadcn/ui components.
 
 ## Commands
 
@@ -22,7 +22,7 @@ npx supabase stop    # Stop local Supabase instance
 ## Architecture
 
 ### Tech Stack
-- **Frontend:** Next.js 15 App Router, React 18, TypeScript, TailwindCSS, shadcn/ui (Radix UI)
+- **Frontend:** Next.js 16 App Router, React 19, TypeScript, TailwindCSS 4, shadcn/ui (Radix UI)
 - **Backend:** Supabase (PostgreSQL, Auth, RLS policies, stored procedures)
 - **Forms:** React Hook Form + Zod validation
 - **State:** React Context (AuthContext for global auth state)

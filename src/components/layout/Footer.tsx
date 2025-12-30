@@ -13,13 +13,6 @@ export default function Footer() {
                         height={24}
                         className="rounded"
                     />
-                    <Image
-                        src="/library-management-system-brand.svg"
-                        alt="Library Management System"
-                        width={100}
-                        height={24}
-                        className="dark:invert"
-                    />
                 </Link>
                 <div className="text-center text-sm leading-loose text-muted-foreground">
                     Built with ♥️ by Chan Meng. © {new Date().getFullYear()} All rights reserved.
