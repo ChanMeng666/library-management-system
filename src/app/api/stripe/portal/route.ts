@@ -58,12 +58,37 @@ export async function POST(request: NextRequest) {
 
         // Create billing portal session
         const baseUrl = process.env.NEXT_PUBLIC_APP_URL || request.headers.get('origin') || ''
-        const session = await createBillingPortalSession(
-            orgData.stripe_customer_id,
-            `${baseUrl}/org/billing`
-        )
 
-        return NextResponse.json({ url: session.url })
+        try {
+            const session = await createBillingPortalSession(
+                orgData.stripe_customer_id,
+                `${baseUrl}/org/billing`
+            )
+            return NextResponse.json({ url: session.url })
+        } catch (stripeError: unknown) {
+            console.error('Stripe portal error:', stripeError)
+
+            // Check for common Stripe errors
+            if (stripeError instanceof Error) {
+                if (stripeError.message.includes('portal')) {
+                    return NextResponse.json(
+                        { error: 'Billing portal is not configured. Please configure it in Stripe Dashboard > Settings > Billing > Customer portal.' },
+                        { status: 400 }
+                    )
+                }
+                if (stripeError.message.includes('customer')) {
+                    return NextResponse.json(
+                        { error: 'Invalid customer. The customer may have been created in a different Stripe mode (test/live).' },
+                        { status: 400 }
+                    )
+                }
+                return NextResponse.json(
+                    { error: `Stripe error: ${stripeError.message}` },
+                    { status: 500 }
+                )
+            }
+            throw stripeError
+        }
     } catch (error) {
         console.error('Billing portal error:', error)
         return NextResponse.json(
