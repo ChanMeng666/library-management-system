@@ -41,14 +41,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                             user_id: currentUser.id,
                             email: currentUser.email,
                             username: currentUser.user_metadata.username || currentUser.email?.split('@')[0] || 'user',
-                            full_name: currentUser.user_metadata.full_name || 'Unknown',
-                            membership_type: 'basic'
+                            full_name: currentUser.user_metadata.full_name || 'Unknown'
                         }
                     ])
 
                 if (insertError) {
                     console.error('Error creating user profile:', insertError)
-                    throw new Error('Failed to create user profile')
+                    // Don't throw - user might already exist or profile creation is optional
                 }
             }
         } catch (error) {
@@ -64,8 +63,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             try {
                 const { data: { session } } = await supabase.auth.getSession()
                 if (session?.user) {
-                    await syncUserProfile(session.user)
                     setUser(session.user)
+                    // Sync profile in background - don't block initial load
+                    syncUserProfile(session.user).catch(err => {
+                        console.error('Profile sync error (non-blocking):', err)
+                    })
                 }
             } catch (error) {
                 console.error('Auth setup error:', error)
@@ -78,13 +80,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
             if (session?.user) {
-                try {
-                    await syncUserProfile(session.user)
-                    setUser(session.user)
-                } catch (error) {
-                    console.error('Auth state change error:', error)
-                    setUser(null)
-                }
+                setUser(session.user)
+                // Sync profile in background - don't block auth state change
+                syncUserProfile(session.user).catch(err => {
+                    console.error('Profile sync error (non-blocking):', err)
+                })
             } else {
                 setUser(null)
             }
@@ -104,7 +104,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         if (error) throw error
 
         if (data.user) {
-            await syncUserProfile(data.user)
+            // Sync profile in background - don't block login
+            syncUserProfile(data.user).catch(err => {
+                console.error('Profile sync error (non-blocking):', err)
+            })
         }
     }
 

@@ -9,10 +9,10 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     auth: {
-        persistSession: true
-    },
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+        storageKey: 'library-management-auth',
+        storage: typeof window !== 'undefined' ? window.localStorage : undefined,
     }
 })
