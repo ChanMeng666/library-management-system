@@ -175,10 +175,30 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
         updateData.current_period_end = currentPeriodEnd
     }
 
+    // Get current organization state before update
+    const { data: currentOrg } = await supabase
+        .from('organizations')
+        .select('subscription_plan, subscription_status')
+        .eq('organization_id', organizationId)
+        .single()
+
     await supabase
         .from('organizations')
         .update(updateData)
         .eq('organization_id', organizationId)
+
+    // Record subscription history
+    await supabase
+        .from('subscription_history')
+        .insert({
+            organization_id: organizationId,
+            previous_plan: currentOrg?.subscription_plan || 'free',
+            new_plan: subscriptionPlan,
+            previous_status: currentOrg?.subscription_status || 'trial',
+            new_status: subscriptionStatus,
+            stripe_invoice_id: subscriptionId,
+            change_reason: 'Subscription created via Stripe checkout',
+        })
 
     // Get organization details for email
     const { data: orgData } = await supabase
@@ -216,10 +236,10 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     const customerId = subscription.customer as string
 
-    // Find organization by customer ID
+    // Find organization by customer ID with current state
     const { data: orgData, error } = await supabase
         .from('organizations')
-        .select('organization_id')
+        .select('organization_id, subscription_plan, subscription_status')
         .eq('stripe_customer_id', customerId)
         .single()
 
@@ -227,6 +247,9 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
         console.error('Organization not found for customer:', customerId)
         return
     }
+
+    const previousPlan = orgData.subscription_plan
+    const previousStatus = orgData.subscription_status
 
     const priceId = subscription.items.data[0]?.price.id
 
@@ -265,6 +288,22 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
         .from('organizations')
         .update(updateData)
         .eq('organization_id', orgData.organization_id)
+
+    // Record subscription history if plan or status changed
+    if (previousPlan !== plan || previousStatus !== status) {
+        await supabase
+            .from('subscription_history')
+            .insert({
+                organization_id: orgData.organization_id,
+                previous_plan: previousPlan || 'free',
+                new_plan: plan,
+                previous_status: previousStatus || 'trial',
+                new_status: status,
+                change_reason: cancelAtPeriodEnd
+                    ? 'Subscription scheduled for cancellation'
+                    : 'Subscription updated',
+            })
+    }
 }
 
 async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
