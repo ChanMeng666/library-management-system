@@ -143,6 +143,13 @@ export default function Header() {
                                         <LayoutDashboard className="mr-2 h-4 w-4" />
                                         Dashboard
                                     </DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        onClick={() => router.push('/account/settings')}
+                                        className="cursor-pointer"
+                                    >
+                                        <UserCircle className="mr-2 h-4 w-4" />
+                                        Account Settings
+                                    </DropdownMenuItem>
                                     {isAdmin && currentOrganization && (
                                         <DropdownMenuItem
                                             onClick={() => router.push('/org/settings')}

@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { AlertCircle, Loader2, BookOpen, Mail, Lock } from 'lucide-react'
+import { AlertCircle, Loader2, BookOpen, Mail, Lock, Sparkles } from 'lucide-react'
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -94,7 +94,7 @@ export default function Login() {
                                             Password
                                         </Label>
                                         <Link
-                                            href="#"
+                                            href="/forgot-password"
                                             className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                                         >
                                             Forgot password?
@@ -133,6 +133,28 @@ export default function Login() {
                                     ) : (
                                         'Sign In'
                                     )}
+                                </Button>
+
+                                <div className="relative">
+                                    <div className="absolute inset-0 flex items-center">
+                                        <div className="w-full border-t border-border" />
+                                    </div>
+                                    <div className="relative flex justify-center text-xs uppercase">
+                                        <span className="bg-card px-2 text-muted-foreground">
+                                            Or
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    className="w-full"
+                                    size="lg"
+                                    onClick={() => router.push('/magic-link')}
+                                >
+                                    <Sparkles className="mr-2 h-4 w-4" />
+                                    Sign in with Magic Link
                                 </Button>
                             </form>
                         </CardContent>

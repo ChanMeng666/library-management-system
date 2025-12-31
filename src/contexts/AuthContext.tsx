@@ -10,6 +10,9 @@ type AuthContextType = {
     signIn: (email: string, password: string) => Promise<void>
     signUp: (email: string, password: string, username: string, fullName: string) => Promise<void>
     signOut: () => Promise<void>
+    resetPassword: (email: string) => Promise<void>
+    signInWithMagicLink: (email: string) => Promise<void>
+    updatePassword: (newPassword: string) => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -156,8 +159,49 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         if (error) throw error
     }
 
+    const resetPassword = async (email: string) => {
+        const redirectUrl = typeof window !== 'undefined'
+            ? `${window.location.origin}/reset-password`
+            : undefined
+
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: redirectUrl,
+        })
+        if (error) throw error
+    }
+
+    const signInWithMagicLink = async (email: string) => {
+        const redirectUrl = typeof window !== 'undefined'
+            ? `${window.location.origin}/dashboard`
+            : undefined
+
+        const { error } = await supabase.auth.signInWithOtp({
+            email,
+            options: {
+                emailRedirectTo: redirectUrl,
+            }
+        })
+        if (error) throw error
+    }
+
+    const updatePassword = async (newPassword: string) => {
+        const { error } = await supabase.auth.updateUser({
+            password: newPassword
+        })
+        if (error) throw error
+    }
+
     return (
-        <AuthContext.Provider value={{ user, loading, signIn, signUp, signOut }}>
+        <AuthContext.Provider value={{
+            user,
+            loading,
+            signIn,
+            signUp,
+            signOut,
+            resetPassword,
+            signInWithMagicLink,
+            updatePassword
+        }}>
             {children}
         </AuthContext.Provider>
     )
