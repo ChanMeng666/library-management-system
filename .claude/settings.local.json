@@ -1,7 +1,42 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(vercel --version)",
+      "Bash(vercel env pull:*)",
+      "Bash(vercel link)",
+      "Bash(vercel link:*)",
+      "Bash(npx supabase:*)",
+      "Bash(psql:*)",
+      "Bash(npm install:*)",
+      "Bash(node scripts/clear-database.js:*)",
+      "Bash(del /f \"D:\\\\github_repository\\\\library-management-system\\\\scripts\\\\clear-database.js\")",
+      "WebSearch",
+      "Bash(npx @tailwindcss/upgrade@latest)",
+      "Bash(npx:*)",
+      "Bash(npm audit fix:*)",
+      "Bash(npm run build:*)",
+      "Bash(git rm:*)",
+      "Bash(npm ls:*)",
+      "Bash(node scripts/update-stripe-prices.js:*)",
+      "Bash(node scripts/fix-subscription.js:*)",
+      "Bash(del \"D:\\\\github_repository\\\\library-management-system\\\\scripts\\\\update-stripe-prices.js\")",
+      "Bash(del \"D:\\\\github_repository\\\\library-management-system\\\\scripts\\\\fix-subscription.js\")",
+      "Bash(stripe config:*)",
+      "Bash(stripe products:*)",
+      "Bash(stripe prices create:*)",
+      "Bash(vercel env add:*)",
+      "Bash(vercel env rm:*)",
+      "Bash(vercel env:*)",
+      "Bash(del nul)",
+      "Skill(example-skills:frontend-design)",
+      "Bash(git -C \"D:\\\\github_repository\\\\library-management-system\" add .gitignore .env.example)",
+      "Bash(git -C \"D:\\\\github_repository\\\\library-management-system\" commit -m \"$\\(cat <<''EOF''\ndocs: add environment example configuration file\n\n- Add .env.example with placeholder values for all required environment\n  variables including Supabase, Stripe, Resend, and PostgreSQL config\n- Update .gitignore to allow tracking .env.example while keeping\n  actual env files ignored\n- Helps new developers quickly set up the project\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"D:\\\\github_repository\\\\library-management-system\" push)",
+      "Bash(del /f \"D:\\\\github_repository\\\\library-management-system\\\\nul\")"
     ]
   }
 }
