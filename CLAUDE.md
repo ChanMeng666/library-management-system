@@ -740,3 +740,34 @@ npx supabase db execute --sql "SELECT ..."
 - Prefer RPC stored procedures over application-layer queries for business logic
 - Security is enforced via PostgreSQL RLS policies
 - Do NOT introduce additional ORM tools (Prisma, Drizzle, etc.)
+
+## Database Keep-Alive System
+
+Supabase 免费层级数据库会在 7 天不活跃后自动暂停。本项目使用 GitHub Actions 定时任务防止此问题。
+
+### How It Works
+1. GitHub Actions 每 3 天自动运行一次（远低于 7 天限制）
+2. 工作流调用 Supabase RPC `ping()` 函数
+3. 函数向 `keep_alive` 表插入心跳记录
+4. 数据库产生写操作，重置活跃计时器
+
+### Related Files
+| File | Purpose |
+|------|---------|
+| `.github/workflows/supabase-keep-alive.yml` | GitHub Actions 定时任务 |
+| `src/app/api/health/ping/route.ts` | 健康检查 API 端点 |
+| `supabase/migrations/20251231000001_add_keep_alive_system.sql` | 心跳表和 ping 函数 |
+
+### Manual Trigger
+在 GitHub 仓库的 Actions 页面可以手动触发工作流进行测试。
+
+### Monitor Heartbeats
+```sql
+-- 查看最近的心跳记录
+SELECT * FROM keep_alive ORDER BY pinged_at DESC LIMIT 10;
+```
+
+### GitHub Secrets Required
+在 GitHub 仓库 Settings > Secrets and variables > Actions 中添加：
+- `SUPABASE_URL` - Supabase 项目 URL
+- `SUPABASE_SERVICE_ROLE_KEY` - Service Role Key（从 Supabase Dashboard 获取）

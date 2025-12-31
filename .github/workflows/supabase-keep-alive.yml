@@ -1,0 +1,80 @@
+name: Supabase Keep-Alive
+
+# This workflow prevents the Supabase free tier database from being
+# auto-paused due to inactivity (7-day limit).
+# It runs every 3 days to ping the database and keep it active.
+
+on:
+  schedule:
+    # Run every 3 days at 00:00 UTC
+    # Cron syntax: minute hour day-of-month month day-of-week
+    - cron: '0 0 */3 * *'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Enable debug output'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  ping-database:
+    name: Ping Supabase Database
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Ping Database via RPC
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          echo "Starting Supabase keep-alive ping..."
+          echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+
+          # Validate environment variables
+          if [ -z "$SUPABASE_URL" ]; then
+            echo "::error::SUPABASE_URL secret is not set"
+            exit 1
+          fi
+
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "::error::SUPABASE_SERVICE_ROLE_KEY secret is not set"
+            exit 1
+          fi
+
+          # Call the ping RPC function directly
+          response=$(curl -f -s -w "\n%{http_code}" -X POST \
+            "${SUPABASE_URL}/rest/v1/rpc/ping" \
+            -H "apikey: ${SUPABASE_SERVICE_ROLE_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
+            -H "Content-Type: application/json" \
+            -d '{"p_agent_info": "GitHub Actions"}')
+
+          # Extract HTTP status code (last line)
+          http_code=$(echo "$response" | tail -n1)
+          # Extract response body (all lines except last)
+          body=$(echo "$response" | sed '$d')
+
+          echo "HTTP Status: $http_code"
+          echo "Response: $body"
+
+          # Check if request was successful
+          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
+            echo "::notice::Database ping successful!"
+            echo "Keep-alive completed at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          else
+            echo "::error::Database ping failed with HTTP $http_code"
+            exit 1
+          fi
+
+      - name: Report Status
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "Supabase database is active and responding."
+          else
+            echo "::warning::Keep-alive ping may have failed. Please check the database status."
+          fi
