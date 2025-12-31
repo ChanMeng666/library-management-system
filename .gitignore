@@ -41,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 /.vscode
 .env*.local
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Windows system files
+nul
+NUL
