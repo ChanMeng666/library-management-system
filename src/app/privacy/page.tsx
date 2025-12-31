@@ -4,8 +4,8 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-    title: 'Privacy Policy - Library Management System',
-    description: 'Privacy Policy for Library Management System',
+    title: 'Privacy Policy - LibraryOS',
+    description: 'Privacy Policy for LibraryOS',
 }
 
 export default function PrivacyPolicyPage() {
@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
                 <section className="mb-8">
                     <h2 className="text-2xl font-display font-semibold mb-4">1. Introduction</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        Welcome to Library Management System. We respect your privacy and are committed to protecting your personal data.
+                        Welcome to LibraryOS. We respect your privacy and are committed to protecting your personal data.
                         This privacy policy will inform you about how we look after your personal data when you visit our website and
                         tell you about your privacy rights and how the law protects you.
                     </p>

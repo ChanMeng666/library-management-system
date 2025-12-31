@@ -92,18 +92,18 @@ export default function Register() {
                 <div className="relative z-10 max-w-md text-black">
                     <div className="mb-8">
                         <Image
-                            src="/library-management-system-logo.svg"
-                            alt="Library"
+                            src="/libraryos-logo.svg"
+                            alt="LibraryOS"
                             width={64}
                             height={64}
                             className="rounded-xl shadow-lg"
                         />
                     </div>
                     <h2 className="text-4xl font-display font-bold mb-4">
-                        Start Your Reading Journey
+                        Start Your Journey with LibraryOS
                     </h2>
                     <p className="text-lg opacity-80 mb-8">
-                        Create your free account and get access to our complete library management platform.
+                        Create your free account and get access to the complete LibraryOS platform.
                     </p>
 
                     {/* Features List */}

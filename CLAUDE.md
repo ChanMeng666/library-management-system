@@ -4,7 +4,7 @@ This file provides comprehensive guidance to Claude Code when working with this 
 
 ## Project Overview
 
-**Multi-tenant Library Management System** built with modern web technologies. This SaaS platform allows organizations to manage their book collections, track loans, handle reservations, and manage team members with role-based access control.
+**LibraryOS** - A multi-tenant library management system built with modern web technologies. This SaaS platform allows organizations to manage their book collections, track loans, handle reservations, and manage team members with role-based access control.
 
 ### Key Features
 - **Multi-tenancy**: Organizations operate in isolated data environments
@@ -708,7 +708,7 @@ STRIPE_PRICE_PRO_YEARLY=price_xxx
 
 ### Session Management
 - Supabase Auth with JWT tokens
-- Session persisted in localStorage (`library-management-auth`)
+- Session persisted in localStorage (`libraryos-auth`)
 - Auto-refresh enabled
 - Auth state synced via `AuthContext`
 

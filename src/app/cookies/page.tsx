@@ -4,8 +4,8 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-    title: 'Cookie Policy - Library Management System',
-    description: 'Cookie Policy for Library Management System',
+    title: 'Cookie Policy - LibraryOS',
+    description: 'Cookie Policy for LibraryOS',
 }
 
 export default function CookiePolicyPage() {

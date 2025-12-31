@@ -10,11 +10,11 @@ import { Toaster } from '@/components/ui/toaster'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'Library Management System',
-    description: 'A modern library management system',
+    title: 'LibraryOS',
+    description: 'The operating system for modern libraries. Organize, track, and share your book collections effortlessly.',
     icons: {
-        icon: '/library-management-system-logo.svg',
-        apple: '/library-management-system-logo.svg',
+        icon: '/libraryos-logo.svg',
+        apple: '/libraryos-logo.svg',
     },
 }
 

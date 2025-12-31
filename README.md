@@ -2,9 +2,9 @@
 
 [![Project Banner](./public/images/placeholder-1.jpg)](#)
 
-# 📚 Library Management System<br/><h3>Multi-tenant SaaS Library Platform</h3>
+# 📚 LibraryOS<br/><h3>The Operating System for Modern Libraries</h3>
 
-A comprehensive multi-tenant library management system that enables organizations to manage their book collections, track loans, handle reservations, and manage team members with role-based access control.<br/>
+LibraryOS is a comprehensive multi-tenant library management system that enables organizations to manage their book collections, track loans, handle reservations, and manage team members with role-based access control.<br/>
 Built with Next.js 16, React 19, TypeScript, Supabase, TailwindCSS 4, and Stripe for subscription billing.<br/>
 One-click **FREE** deployment for your digital library transformation.
 
@@ -31,7 +31,7 @@ One-click **FREE** deployment for your digital library transformation.
 [![][share-linkedin-shield]][share-linkedin-link]
 [![][share-reddit-shield]][share-reddit-link]
 
-<sup>🌟 Multi-tenant library management for the digital age. Built for organizations, librarians, and book enthusiasts.</sup>
+<sup>🌟 LibraryOS: The operating system for modern libraries. Built for organizations, librarians, and book enthusiasts.</sup>
 
 [![][github-trending-shield]][github-trending-url]
 
@@ -770,7 +770,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-<strong>🚀 Multi-tenant Library Management for the Digital Age 🌟</strong>
+<strong>🚀 LibraryOS: The Operating System for Modern Libraries 🌟</strong>
 <br/>
 <em>Empowering organizations and readers worldwide</em>
 <br/><br/>

@@ -12,7 +12,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
         persistSession: true,
         autoRefreshToken: true,
         detectSessionInUrl: true,
-        storageKey: 'library-management-auth',
+        storageKey: 'libraryos-auth',
         storage: typeof window !== 'undefined' ? window.localStorage : undefined,
     }
 })

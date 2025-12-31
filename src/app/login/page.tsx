@@ -53,7 +53,7 @@ export default function Login() {
                                     Welcome back
                                 </CardTitle>
                                 <CardDescription className="mt-2">
-                                    Sign in to continue to your library
+                                    Sign in to continue to LibraryOS
                                 </CardDescription>
                             </div>
                         </CardHeader>
@@ -162,7 +162,7 @@ export default function Login() {
                                 </div>
                                 <div className="relative flex justify-center text-xs uppercase">
                                     <span className="bg-card px-2 text-muted-foreground">
-                                        New to Library?
+                                        New to LibraryOS?
                                     </span>
                                 </div>
                             </div>
@@ -188,18 +188,18 @@ export default function Login() {
                 <div className="relative z-10 max-w-md text-black">
                     <div className="mb-8">
                         <Image
-                            src="/library-management-system-logo.svg"
-                            alt="Library"
+                            src="/libraryos-logo.svg"
+                            alt="LibraryOS"
                             width={64}
                             height={64}
                             className="rounded-xl shadow-lg"
                         />
                     </div>
                     <h2 className="text-4xl font-display font-bold mb-4">
-                        Manage Your Library Effortlessly
+                        Power Your Library with LibraryOS
                     </h2>
                     <p className="text-lg opacity-80 mb-8">
-                        Join thousands of organizations using our platform to organize, track, and share their book collections.
+                        Join thousands of organizations using LibraryOS to organize, track, and share their book collections.
                     </p>
                     <div className="flex items-center gap-4">
                         <div className="flex -space-x-2">

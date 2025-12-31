@@ -46,8 +46,8 @@ export default function Header() {
                     <Link href="/" className="flex items-center gap-3 group">
                         <div className="relative overflow-hidden">
                             <Image
-                                src="/library-management-system-logo.svg"
-                                alt="Library Management System"
+                                src="/libraryos-logo.svg"
+                                alt="LibraryOS"
                                 width={36}
                                 height={36}
                                 className="transition-transform duration-300 group-hover:scale-110"
@@ -55,7 +55,7 @@ export default function Header() {
                             <div className="absolute inset-0 bg-gradient-to-r from-[#02FF73] to-[#09ADAA] opacity-0 group-hover:opacity-20 transition-opacity" />
                         </div>
                         <span className="font-display font-bold text-lg hidden sm:inline bg-gradient-to-r from-[#02FF73] to-[#09ADAA] bg-clip-text text-transparent">
-                            Library
+                            LibraryOS
                         </span>
                     </Link>
 

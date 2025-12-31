@@ -39,18 +39,18 @@ export default function Footer() {
                         <Link href="/" className="flex items-center gap-3 mb-4 group">
                             <div className="relative">
                                 <Image
-                                    src="/library-management-system-logo.svg"
-                                    alt="Library Management System"
+                                    src="/libraryos-logo.svg"
+                                    alt="LibraryOS"
                                     width={40}
                                     height={40}
                                 />
                             </div>
                             <span className="font-display font-bold text-xl bg-gradient-to-r from-[#02FF73] to-[#09ADAA] bg-clip-text text-transparent">
-                                Library
+                                LibraryOS
                             </span>
                         </Link>
                         <p className="text-muted-foreground text-sm max-w-xs mb-6">
-                            Modern library management for the digital age. Organize, track, and share your book collections effortlessly.
+                            LibraryOS: The operating system for modern libraries. Organize, track, and share your book collections effortlessly.
                         </p>
                         <div className="flex items-center gap-4">
                             <a
@@ -113,7 +113,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-border/40 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-sm text-muted-foreground">
-                        &copy; {new Date().getFullYear()} Library Management System. All rights reserved.
+                        &copy; {new Date().getFullYear()} LibraryOS. All rights reserved.
                     </p>
                     <div className="flex items-center gap-6 text-sm text-muted-foreground">
                         <Link href="/privacy" className="hover:text-foreground transition-colors">

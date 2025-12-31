@@ -12,7 +12,7 @@ export const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 // Default sender email (must be verified in Resend)
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@yourdomain.com'
-const FROM_NAME = process.env.RESEND_FROM_NAME || 'Library Management System'
+const FROM_NAME = process.env.RESEND_FROM_NAME || 'LibraryOS'
 
 // Email types
 export type EmailType =
@@ -116,7 +116,7 @@ export async function sendBookNotificationEmail(params: {
 // Email templates
 function getEmailTemplate(type: EmailType, data: EmailData): { subject: string; html: string } {
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://yourdomain.com'
-    const logoUrl = `${appUrl}/library-management-system-logo.svg`
+    const logoUrl = `${appUrl}/libraryos-logo.svg`
 
     const baseStyles = `
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
@@ -142,14 +142,14 @@ function getEmailTemplate(type: EmailType, data: EmailData): { subject: string; 
 </head>
 <body>
     <div class="header">
-        <img src="${logoUrl}" alt="Library Management System" class="logo">
-        <h2 style="margin: 10px 0 0; color: #333;">Library Management System</h2>
+        <img src="${logoUrl}" alt="LibraryOS" class="logo">
+        <h2 style="margin: 10px 0 0; color: #333;">LibraryOS</h2>
     </div>
     <div class="content">
         ${content}
     </div>
     <div class="footer">
-        <p>&copy; ${new Date().getFullYear()} Library Management System. All rights reserved.</p>
+        <p>&copy; ${new Date().getFullYear()} LibraryOS. All rights reserved.</p>
         <p><a href="${appUrl}">Visit our website</a></p>
     </div>
 </body>
@@ -159,10 +159,10 @@ function getEmailTemplate(type: EmailType, data: EmailData): { subject: string; 
     switch (type) {
         case 'welcome':
             return {
-                subject: 'Welcome to Library Management System!',
+                subject: 'Welcome to LibraryOS!',
                 html: wrapHtml(`
                     <h1>Welcome, ${data.userName || 'there'}!</h1>
-                    <p>Thank you for joining Library Management System. We're excited to have you on board!</p>
+                    <p>Thank you for joining LibraryOS. We're excited to have you on board!</p>
                     <p>With our platform, you can:</p>
                     <ul>
                         <li>Manage your library's book collection</li>
@@ -173,7 +173,7 @@ function getEmailTemplate(type: EmailType, data: EmailData): { subject: string; 
                     <p style="text-align: center; margin-top: 30px;">
                         <a href="${appUrl}/dashboard" class="button">Go to Dashboard</a>
                     </p>
-                `, 'Welcome to Library Management System!'),
+                `, 'Welcome to LibraryOS!'),
             }
 
         case 'invitation':
@@ -337,14 +337,14 @@ function getEmailTemplate(type: EmailType, data: EmailData): { subject: string; 
 
         default:
             return {
-                subject: 'Notification from Library Management System',
+                subject: 'Notification from LibraryOS',
                 html: wrapHtml(`
                     <h1>Notification</h1>
-                    <p>You have a new notification from Library Management System.</p>
+                    <p>You have a new notification from LibraryOS.</p>
                     <p style="text-align: center; margin-top: 30px;">
                         <a href="${appUrl}" class="button">Visit Dashboard</a>
                     </p>
-                `, 'Notification from Library Management System'),
+                `, 'Notification from LibraryOS'),
             }
     }
 }

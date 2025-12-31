@@ -4,8 +4,8 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-    title: 'Terms of Service - Library Management System',
-    description: 'Terms of Service for Library Management System',
+    title: 'Terms of Service - LibraryOS',
+    description: 'Terms of Service for LibraryOS',
 }
 
 export default function TermsOfServicePage() {
@@ -27,7 +27,7 @@ export default function TermsOfServicePage() {
                 <section className="mb-8">
                     <h2 className="text-2xl font-display font-semibold mb-4">1. Acceptance of Terms</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        By accessing and using the Library Management System, you accept and agree to be bound by the terms
+                        By accessing and using LibraryOS, you accept and agree to be bound by the terms
                         and provisions of this agreement. If you do not agree to these terms, please do not use our service.
                     </p>
                 </section>
@@ -35,7 +35,7 @@ export default function TermsOfServicePage() {
                 <section className="mb-8">
                     <h2 className="text-2xl font-display font-semibold mb-4">2. Description of Service</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        Library Management System provides a digital platform for organizations to manage their book collections,
+                        LibraryOS provides a digital platform for organizations to manage their book collections,
                         track loans and reservations, and facilitate member access to library resources. Our service includes
                         book cataloging, member management, loan tracking, and organizational administration features.
                     </p>
@@ -90,7 +90,7 @@ export default function TermsOfServicePage() {
                 <section className="mb-8">
                     <h2 className="text-2xl font-display font-semibold mb-4">7. Intellectual Property</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        The Library Management System, including its original content, features, and functionality, is owned by us
+                        LibraryOS, including its original content, features, and functionality, is owned by us
                         and is protected by international copyright, trademark, and other intellectual property laws. You retain
                         ownership of any content you upload but grant us a license to use it for providing our services.
                     </p>

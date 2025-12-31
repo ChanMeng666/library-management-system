@@ -64,15 +64,15 @@ export default function Home() {
 
                         {/* Main Heading */}
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                            Your Digital
+                            The Operating System
                             <span className="block bg-gradient-to-r from-[#02FF73] to-[#09ADAA] bg-clip-text text-transparent">
-                                Library Experience
+                                for Modern Libraries
                             </span>
                         </h1>
 
                         {/* Subtitle */}
                         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                            Discover, borrow, and manage your reading journey with our modern library management system.
+                            Discover, borrow, and manage your reading journey with LibraryOS.
                             Built for teams who love books.
                         </p>
 
@@ -141,10 +141,10 @@ export default function Home() {
                     <div className="text-center max-w-2xl mx-auto mb-16">
                         <Badge variant="outline" className="mb-4">Features</Badge>
                         <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-                            Everything you need to manage your library
+                            Everything you need to run your library
                         </h2>
                         <p className="text-muted-foreground text-lg">
-                            Powerful features designed to make library management effortless for organizations of any size.
+                            LibraryOS provides powerful features designed to make library management effortless for organizations of any size.
                         </p>
                     </div>
 
@@ -184,10 +184,10 @@ export default function Home() {
                 <div className="container mx-auto px-4 relative z-10">
                     <Card variant="glass" className="max-w-4xl mx-auto p-8 md:p-12 text-center">
                         <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-                            Ready to transform your library?
+                            Ready to power your library?
                         </h2>
                         <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-                            Join hundreds of organizations already using our platform to manage their book collections efficiently.
+                            Join hundreds of organizations already using LibraryOS to manage their book collections efficiently.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button variant="gradient" size="lg" asChild>

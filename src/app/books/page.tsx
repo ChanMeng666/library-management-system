@@ -161,7 +161,7 @@ export default function BookCatalog() {
         return (
             <div className="text-center py-12">
                 <Building2 className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-                <h2 className="text-2xl font-semibold mb-2">Welcome to Library Management System</h2>
+                <h2 className="text-2xl font-semibold mb-2">Welcome to LibraryOS</h2>
                 <p className="text-muted-foreground mb-6">
                     Sign in to access your organization&apos;s book catalog.
                 </p>
