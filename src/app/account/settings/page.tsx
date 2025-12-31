@@ -11,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { PasswordInput } from '@/components/ui/password-input'
 import {
     AlertCircle,
     Loader2,
@@ -485,41 +486,31 @@ export default function AccountSettings() {
 
                                 <div className="space-y-2">
                                     <Label htmlFor="currentPassword">Current Password</Label>
-                                    <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                        <Input
-                                            id="currentPassword"
-                                            type="password"
-                                            value={currentPassword}
-                                            onChange={(e) => {
-                                                setCurrentPassword(e.target.value)
-                                                setPasswordError(null)
-                                            }}
-                                            placeholder="Enter current password"
-                                            className="pl-10"
-                                            required
-                                        />
-                                    </div>
+                                    <PasswordInput
+                                        id="currentPassword"
+                                        value={currentPassword}
+                                        onChange={(e) => {
+                                            setCurrentPassword(e.target.value)
+                                            setPasswordError(null)
+                                        }}
+                                        placeholder="Enter current password"
+                                        required
+                                    />
                                 </div>
 
                                 <div className="space-y-2">
                                     <Label htmlFor="newPassword">New Password</Label>
-                                    <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                        <Input
-                                            id="newPassword"
-                                            type="password"
-                                            value={newPassword}
-                                            onChange={(e) => {
-                                                setNewPassword(e.target.value)
-                                                setPasswordError(null)
-                                            }}
-                                            placeholder="Enter new password"
-                                            className="pl-10"
-                                            required
-                                            minLength={6}
-                                        />
-                                    </div>
+                                    <PasswordInput
+                                        id="newPassword"
+                                        value={newPassword}
+                                        onChange={(e) => {
+                                            setNewPassword(e.target.value)
+                                            setPasswordError(null)
+                                        }}
+                                        placeholder="Enter new password"
+                                        required
+                                        minLength={6}
+                                    />
                                     <p className="text-xs text-muted-foreground">
                                         Must be at least 6 characters
                                     </p>
@@ -527,21 +518,16 @@ export default function AccountSettings() {
 
                                 <div className="space-y-2">
                                     <Label htmlFor="confirmPassword">Confirm New Password</Label>
-                                    <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                        <Input
-                                            id="confirmPassword"
-                                            type="password"
-                                            value={confirmPassword}
-                                            onChange={(e) => {
-                                                setConfirmPassword(e.target.value)
-                                                setPasswordError(null)
-                                            }}
-                                            placeholder="Confirm new password"
-                                            className="pl-10"
-                                            required
-                                        />
-                                    </div>
+                                    <PasswordInput
+                                        id="confirmPassword"
+                                        value={confirmPassword}
+                                        onChange={(e) => {
+                                            setConfirmPassword(e.target.value)
+                                            setPasswordError(null)
+                                        }}
+                                        placeholder="Confirm new password"
+                                        required
+                                    />
                                 </div>
 
                                 <Button

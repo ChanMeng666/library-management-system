@@ -9,7 +9,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { AlertCircle, Loader2, BookOpen, Lock, CheckCircle2, ArrowLeft } from 'lucide-react'
+import { PasswordInput } from '@/components/ui/password-input'
+import { AlertCircle, Loader2, BookOpen, CheckCircle2, ArrowLeft } from 'lucide-react'
 
 export default function ResetPassword() {
     const [password, setPassword] = useState('')
@@ -209,23 +210,18 @@ export default function ResetPassword() {
                             <Label htmlFor="password" className="text-sm font-medium">
                                 New Password
                             </Label>
-                            <div className="relative">
-                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                <Input
-                                    id="password"
-                                    type="password"
-                                    placeholder="Enter new password"
-                                    value={password}
-                                    onChange={(e) => {
-                                        setPassword(e.target.value)
-                                        setError(null)
-                                    }}
-                                    disabled={isLoading}
-                                    required
-                                    minLength={6}
-                                    className="pl-10"
-                                />
-                            </div>
+                            <PasswordInput
+                                id="password"
+                                placeholder="Enter new password"
+                                value={password}
+                                onChange={(e) => {
+                                    setPassword(e.target.value)
+                                    setError(null)
+                                }}
+                                disabled={isLoading}
+                                required
+                                minLength={6}
+                            />
                             <p className="text-xs text-muted-foreground">
                                 Must be at least 6 characters
                             </p>
@@ -235,22 +231,17 @@ export default function ResetPassword() {
                             <Label htmlFor="confirmPassword" className="text-sm font-medium">
                                 Confirm New Password
                             </Label>
-                            <div className="relative">
-                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                <Input
-                                    id="confirmPassword"
-                                    type="password"
-                                    placeholder="Confirm new password"
-                                    value={confirmPassword}
-                                    onChange={(e) => {
-                                        setConfirmPassword(e.target.value)
-                                        setError(null)
-                                    }}
-                                    disabled={isLoading}
-                                    required
-                                    className="pl-10"
-                                />
-                            </div>
+                            <PasswordInput
+                                id="confirmPassword"
+                                placeholder="Confirm new password"
+                                value={confirmPassword}
+                                onChange={(e) => {
+                                    setConfirmPassword(e.target.value)
+                                    setError(null)
+                                }}
+                                disabled={isLoading}
+                                required
+                            />
                         </div>
 
                         <Button

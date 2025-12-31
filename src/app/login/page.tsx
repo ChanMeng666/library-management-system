@@ -10,7 +10,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { AlertCircle, Loader2, BookOpen, Mail, Lock, Sparkles } from 'lucide-react'
+import { PasswordInput } from '@/components/ui/password-input'
+import { AlertCircle, Loader2, BookOpen, Mail, Sparkles } from 'lucide-react'
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -100,22 +101,17 @@ export default function Login() {
                                             Forgot password?
                                         </Link>
                                     </div>
-                                    <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                        <Input
-                                            id="password"
-                                            type="password"
-                                            placeholder="Enter your password"
-                                            value={password}
-                                            onChange={(e) => {
-                                                setPassword(e.target.value)
-                                                setError(null)
-                                            }}
-                                            disabled={isLoading}
-                                            required
-                                            className="pl-10"
-                                        />
-                                    </div>
+                                    <PasswordInput
+                                        id="password"
+                                        placeholder="Enter your password"
+                                        value={password}
+                                        onChange={(e) => {
+                                            setPassword(e.target.value)
+                                            setError(null)
+                                        }}
+                                        disabled={isLoading}
+                                        required
+                                    />
                                 </div>
 
                                 <Button

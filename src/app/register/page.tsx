@@ -10,7 +10,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { AlertCircle, Loader2, User, Mail, Lock, UserPlus, Check } from 'lucide-react'
+import { PasswordInput } from '@/components/ui/password-input'
+import { AlertCircle, Loader2, User, Mail, UserPlus, Check } from 'lucide-react'
 
 const features = [
     "Access to thousands of books",
@@ -211,39 +212,29 @@ export default function Register() {
                                         <Label htmlFor="password" className="text-sm font-medium">
                                             Password
                                         </Label>
-                                        <div className="relative">
-                                            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                            <Input
-                                                id="password"
-                                                name="password"
-                                                type="password"
-                                                placeholder="Min 6 characters"
-                                                className="pl-10"
-                                                value={formData.password}
-                                                onChange={handleChange}
-                                                disabled={isLoading}
-                                                required
-                                            />
-                                        </div>
+                                        <PasswordInput
+                                            id="password"
+                                            name="password"
+                                            placeholder="Min 6 characters"
+                                            value={formData.password}
+                                            onChange={handleChange}
+                                            disabled={isLoading}
+                                            required
+                                        />
                                     </div>
                                     <div className="space-y-2">
                                         <Label htmlFor="confirmPassword" className="text-sm font-medium">
                                             Confirm Password
                                         </Label>
-                                        <div className="relative">
-                                            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                            <Input
-                                                id="confirmPassword"
-                                                name="confirmPassword"
-                                                type="password"
-                                                placeholder="Confirm password"
-                                                className="pl-10"
-                                                value={formData.confirmPassword}
-                                                onChange={handleChange}
-                                                disabled={isLoading}
-                                                required
-                                            />
-                                        </div>
+                                        <PasswordInput
+                                            id="confirmPassword"
+                                            name="confirmPassword"
+                                            placeholder="Confirm password"
+                                            value={formData.confirmPassword}
+                                            onChange={handleChange}
+                                            disabled={isLoading}
+                                            required
+                                        />
                                     </div>
                                 </div>
 
