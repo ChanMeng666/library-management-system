@@ -711,3 +711,32 @@ STRIPE_PRICE_PRO_YEARLY=price_xxx
 - Session persisted in localStorage (`library-management-auth`)
 - Auto-refresh enabled
 - Auth state synced via `AuthContext`
+
+## Database Management
+
+本项目使用 **Supabase CLI** 管理数据库，不使用 ORM（如 Prisma、Drizzle）。
+
+### Available Tools
+- `supabase` CLI (v2.70.5) - 已链接远程项目
+- `pg` 库 - 用于编写数据库脚本
+- Supabase Dashboard - 网页界面管理
+
+### Common Commands
+```bash
+# Migration management
+npx supabase migration new <name>   # Create new migration
+npx supabase migration list         # View migration status
+npx supabase db push                # Push migrations to remote
+
+# Type generation
+npx supabase gen types typescript --linked > src/types/database.ts
+
+# Execute SQL
+npx supabase db execute --sql "SELECT ..."
+```
+
+### Important Notes
+- Database schema changes must go through SQL migration files in `supabase/migrations/`
+- Prefer RPC stored procedures over application-layer queries for business logic
+- Security is enforced via PostgreSQL RLS policies
+- Do NOT introduce additional ORM tools (Prisma, Drizzle, etc.)
